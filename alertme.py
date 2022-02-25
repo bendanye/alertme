@@ -3,10 +3,6 @@ import threading
 
 import PySimpleGUI as sg
 
-# pip install playsound==1.2.2
-# pip install -U PyObjC
-# mixkit-cartoon-positive-sound-2255.wav
-
 def alert():
     loop_thread = threading.Thread(target=__loop_sound, name='backgroundMusicThread')
     loop_thread.daemon = True
