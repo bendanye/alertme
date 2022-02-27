@@ -10,11 +10,15 @@ At least Python 3.7
 
 ### Install required library
 
+```shell
 pip install -r requirements.txt
+```
 
 ### Run the program
 
+```shell
 python alertme.py
+```
 
 ## Credit
 
