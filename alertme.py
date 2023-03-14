@@ -1,3 +1,5 @@
+import os
+
 from playsound import playsound
 import threading
 
@@ -29,8 +31,9 @@ def alert():
 
 def __loop_sound():
     while True:
-        playsound('sound.wav', block=True)
-
+        playsound(
+            f"{os.path.realpath(os.path.dirname(__file__))}/sound.wav", block=True
+        )
 
 if __name__ == "__main__":
     alert()
