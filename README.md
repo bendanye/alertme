@@ -20,6 +20,12 @@ pip install -r requirements.txt
 python alertme.py
 ```
 
+### Run the program without sound
+
+```shell
+python alertme.py --disable-sound
+```
+
 ## Credit
 
 The sound wav is from [Mixkit](https://mixkit.co).

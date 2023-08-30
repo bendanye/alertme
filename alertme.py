@@ -1,4 +1,5 @@
 import os
+import argparse
 
 from playsound import playsound
 import threading
@@ -7,9 +8,13 @@ import PySimpleGUI as sg
 
 
 def alert():
-    loop_thread = threading.Thread(target=__loop_sound, name="backgroundMusicThread")
-    loop_thread.daemon = True
-    loop_thread.start()
+    args = _parse_args()
+    if not args.disable_sound:
+        loop_thread = threading.Thread(
+            target=__loop_sound, name="backgroundMusicThread"
+        )
+        loop_thread.daemon = True
+        loop_thread.start()
 
     sg.theme("BluePurple")
 
@@ -33,6 +38,13 @@ def alert():
             break
 
     window.close()
+
+
+def _parse_args():
+    parser = argparse.ArgumentParser(description="Alert Me")
+    parser.add_argument("--disable-sound", action="store_true")
+
+    return parser.parse_args()
 
 
 def __loop_sound():
