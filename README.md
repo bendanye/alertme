@@ -17,13 +17,13 @@ pip install -r requirements.txt
 ### Run the program
 
 ```shell
-python alertme.py
+python3 alertme.py
 ```
 
 ### Run the program without sound
 
 ```shell
-python alertme.py --disable-sound
+python3 alertme.py --disable-sound
 ```
 
 ## Credit
