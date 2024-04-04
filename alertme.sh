@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "$(dirname "$0")"
+
 while getopts ":p:s:t:" opt; do
   case $opt in
     p) display_popup="$OPTARG"
