@@ -2,6 +2,8 @@
 
 cd "$(dirname "$0")"
 
+source config.env
+
 while getopts ":p:s:t:" opt; do
   case $opt in
     p) display_popup="$OPTARG"
@@ -16,21 +18,27 @@ while getopts ":p:s:t:" opt; do
 done
 
 if [[ "$display_popup" == "" ]]; then
-    display_popup="true"
-else
-    display_popup="false"
+    if [[ "$IS_DISPLAY_POPUP" != "" ]]; then
+        display_popup="$IS_DISPLAY_POPUP"
+    else
+        display_popup="true"
+    fi
 fi
 
 if [[ "$play_sound" == "" ]]; then
-    play_sound="false"
-else
-    play_sound="true"
+    if [[ "$IS_PLAY_SOUND" != "" ]]; then
+        play_sound="$IS_PLAY_SOUND"
+    else
+        play_sound="false"
+    fi
 fi
 
 if [[ "$to_telegram" == "" ]]; then
-    to_telegram="false"
-else
-    to_telegram="true"
+    if [[ "$IS_SEND_MESSAGE_VIA_TELEGRAM" != "" ]]; then
+        to_telegram="$IS_SEND_MESSAGE_VIA_TELEGRAM"
+    else
+        to_telegram="false"
+    fi
 fi
 
 if [[ "$display_popup" == "true" ]]; then
