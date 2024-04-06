@@ -6,7 +6,7 @@ while getopts ":p:s:t:" opt; do
   case $opt in
     p) display_popup="$OPTARG"
     ;;
-    s) run_sound="$OPTARG"
+    s) play_sound="$OPTARG"
     ;;
     t) to_telegram="$OPTARG"
     ;;
@@ -21,10 +21,10 @@ else
     display_popup="false"
 fi
 
-if [[ "$run_sound" == "" ]]; then
-    run_sound="false"
+if [[ "$play_sound" == "" ]]; then
+    play_sound="false"
 else
-    run_sound="true"
+    play_sound="true"
 fi
 
 if [[ "$to_telegram" == "" ]]; then
@@ -34,7 +34,7 @@ else
 fi
 
 if [[ "$display_popup" == "true" ]]; then
-    if [[ "$run_sound" == "true" ]]; then
+    if [[ "$play_sound" == "true" ]]; then
         python3 alertme.py
     else
         python3 alertme.py --disable-sound
