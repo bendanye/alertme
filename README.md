@@ -12,6 +12,9 @@ At least Python 3.7
 
 ```shell
 pip install -r requirements.txt
+
+# For newer Mac
+brew install python-tk
 ```
 
 ### Run the program
