@@ -1,7 +1,6 @@
 import os
 import argparse
 
-from playsound import playsound
 import threading
 
 import PySimpleGUI as sg
@@ -48,6 +47,7 @@ def _parse_args():
 
 
 def __loop_sound():
+    from playsound import playsound
     while True:
         playsound(
             f"{os.path.realpath(os.path.dirname(__file__))}/sound.wav", block=True
