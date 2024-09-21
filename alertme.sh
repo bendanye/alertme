@@ -4,13 +4,15 @@ cd "$(dirname "$0")"
 
 source config.env
 
-while getopts ":p:s:t:" opt; do
+while getopts ":p:s:t:m:" opt; do
   case $opt in
     p) display_popup="$OPTARG"
     ;;
     s) play_sound="$OPTARG"
     ;;
     t) to_telegram="$OPTARG"
+    ;;
+    m) message="$OPTARG"
     ;;
     \?) echo "Invalid option -$OPTARG" >&2
     ;;
@@ -33,6 +35,11 @@ if [[ "$play_sound" == "" ]]; then
     fi
 fi
 
+message_arg=""
+if [[ "$message" != "" ]]; then
+    message_arg="--message $message"
+fi
+
 if [[ "$to_telegram" == "" ]]; then
     if [[ "$IS_SEND_MESSAGE_VIA_TELEGRAM" != "" ]]; then
         to_telegram="$IS_SEND_MESSAGE_VIA_TELEGRAM"
@@ -43,9 +50,9 @@ fi
 
 if [[ "$display_popup" == "true" ]]; then
     if [[ "$play_sound" == "true" ]]; then
-        python3 alertme.py
+        python3 alertme.py $message_arg
     else
-        python3 alertme.py --disable-sound
+        python3 alertme.py --disable-sound $message_arg
     fi
 fi
 

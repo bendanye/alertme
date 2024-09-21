@@ -19,7 +19,7 @@ def alert():
 
     layout = [
         [
-            sg.Text("Your Script/Codes have completed!"),
+            sg.Text(args.message),
             sg.Text(size=(15, 1), key="-OUTPUT-"),
         ],
         [sg.Button("OK", bind_return_key=True)],
@@ -42,12 +42,19 @@ def alert():
 def _parse_args():
     parser = argparse.ArgumentParser(description="Alert Me")
     parser.add_argument("--disable-sound", action="store_true")
+    parser.add_argument(
+        "--message",
+        action="store",
+        type=str,
+        default="Your Script/Codes have completed!",
+    )
 
     return parser.parse_args()
 
 
 def __loop_sound():
     from playsound import playsound
+
     while True:
         playsound(
             f"{os.path.realpath(os.path.dirname(__file__))}/sound.wav", block=True
