@@ -36,8 +36,10 @@ if [[ "$play_sound" == "" ]]; then
 fi
 
 message_arg=""
-if [[ "$message" != "" ]]; then
-    message_arg="--message $message"
+if [[ "$message" == "" ]]; then
+    message_arg="Your Script/Codes have completed!"
+else
+    message_arg="${message}"
 fi
 
 if [[ "$to_telegram" == "" ]]; then
@@ -50,9 +52,9 @@ fi
 
 if [[ "$display_popup" == "true" ]]; then
     if [[ "$play_sound" == "true" ]]; then
-        python3 alertme.py $message_arg
+        python3 alertme.py --message "$message_arg"
     else
-        python3 alertme.py --disable-sound $message_arg
+        python3 alertme.py --disable-sound --message "$message_arg"
     fi
 fi
 
