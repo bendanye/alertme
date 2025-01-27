@@ -50,6 +50,8 @@ if [[ "$to_telegram" == "" ]]; then
     fi
 fi
 
+source venv/bin/activate
+
 if [[ "$display_popup" == "true" ]]; then
     if [[ "$play_sound" == "true" ]]; then
         python3 alertme.py --message "$message_arg"
