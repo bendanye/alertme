@@ -4,7 +4,7 @@ A simple tool that will display a popup window and keep alert you with sound unt
 
 ## Prerequisites
 
-At least Python 3.7
+Python 3.7 - 3.9
 
 ## Project Setup & Commands
 
@@ -22,7 +22,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 # For newer Mac
-brew install python-tk
+brew install python-tk@3.9
 ```
 
 ### Run the program

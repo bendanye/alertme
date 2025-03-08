@@ -3,7 +3,7 @@ import argparse
 
 import threading
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 
 
 def alert():
