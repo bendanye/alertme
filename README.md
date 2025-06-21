@@ -16,6 +16,16 @@ python3 -m venv .venv
 
 ### Install required library
 
+#### Windows
+
+```powershell
+.venv\Scripts\Activate.ps1
+
+pip install -r requirements.txt
+```
+
+#### Mac
+
 ```shell
 source .venv/bin/activate
 
@@ -27,6 +37,16 @@ brew install python-tk@3.9
 
 ### Run the program
 
+#### Windows
+
+```powershell
+.venv\Scripts\Activate.ps1
+
+python3 alertme.py
+```
+
+#### Mac
+
 ```shell
 source .venv/bin/activate
 
@@ -36,7 +56,7 @@ python3 alertme.py
 ### Run the program without sound
 
 ```shell
-source .venv/bin/activate
+## Follow the above instruction on activate venv
 
 python3 alertme.py --disable-sound
 ```
